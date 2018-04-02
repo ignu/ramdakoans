@@ -1,0 +1,13 @@
+{
+  "name": "ramdakoans",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Len Smith",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^22.4.3"
+  },
+  "dependencies": {
+    "ramda": "^0.25.0"
+  }
+}
