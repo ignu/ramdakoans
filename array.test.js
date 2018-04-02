@@ -42,3 +42,12 @@ describe("aperture", () => {
     expect(result).toEqual([[1, 2, 3], [2, 3, 4], [3, 4, 5]]);
   })
 })
+
+describe("apply", () => {
+  it("applies a function to a list", () => {
+    const list = [5, 2, "ignored"];
+
+    expect(R.apply(R.add, list)).toEqual(7);
+  });
+});
+
