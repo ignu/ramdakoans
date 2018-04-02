@@ -12,3 +12,15 @@ describe("adjust", () => {
 });
 
 
+describe("all", () => {
+  it("returns true if suplied predicate returns truthy ", () => {
+    const trues = [true, 1, 1];
+
+    expect(R.all(R.identity, trues)).toEqual(true);
+
+    const make1falsey = R.adjust(R.always(false), 1);
+
+    expect(R.all(R.identity, make1falsey(trues))).toEqual(false);
+  });
+});
+
