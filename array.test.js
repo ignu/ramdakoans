@@ -24,3 +24,21 @@ describe("all", () => {
   });
 });
 
+
+describe("any", () => {
+  it("returns true if suplied predicate returns truthy for any value", () => {
+    const oneTruthy = [false, 1, false];
+
+    expect(R.any(R.identity, oneTruthy)).toEqual(true);
+  });
+});
+
+describe("aperture", () => {
+  it("returns a list of n typed of consecutive elements", () => {
+    const list = [1, 2, 3, 4, 5];
+
+    const result = R.aperture(3, list);
+
+    expect(result).toEqual([[1, 2, 3], [2, 3, 4], [3, 4, 5]]);
+  })
+})
