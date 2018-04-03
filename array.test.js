@@ -121,3 +121,20 @@ describe("dropLast", () => {
   });
 });
 
+describe("dropWhile", () => {
+  it("like drop but with a predicate", () => {
+    const isOne = R.equals(1);
+
+    expect(R.dropWhile(isOne, [1, 1, 1, 2])).toEqual([2]);
+  });
+});
+
+
+describe("dropLastWhile", () => {
+  it("like dropLast but with a predicate", () => {
+    const isOne = R.equals(1);
+
+    expect(R.dropLastWhile(isOne, [2, 1, 1, 1])).toEqual([2]);
+  });
+});
+
