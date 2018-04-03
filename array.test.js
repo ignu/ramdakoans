@@ -223,3 +223,11 @@ describe("flatten", () => {
   });
 });
 
+describe("forEach", () => {
+  it("loops over elements", () => {
+    let x = 0;
+    R.forEach((i) => x = x + i, [1, 2, 3])
+    expect(x).toEqual(6);
+  });
+});
+
