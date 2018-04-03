@@ -96,3 +96,12 @@ describe("concat", () => {
   });
 });
 
+describe("contains", () => {
+  it("detects if an array contains an element", () => {
+    const arr = [1, 2, 3]
+
+    expect(R.contains(1, arr)).toBeTruthy();
+    expect(R.contains(9, arr)).not.toBeTruthy();
+  });
+});
+
