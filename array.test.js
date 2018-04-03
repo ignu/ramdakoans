@@ -173,4 +173,17 @@ describe("filter", () => {
   });
 });
 
+describe("find", () => {
+  it("returns first element of the array", () => {
+    const arr = [{king: false, firstName: "Bran"},
+      {king: true, firstName: "Jon"},
+      {king: true, firstName: "Stannis"}
+    ];
+
+    const isKing = R.propEq('king', true)
+
+    expect(R.find(isKing, arr).firstName).toEqual("Jon");
+  });
+});
+
 
