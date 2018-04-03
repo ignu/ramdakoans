@@ -113,3 +113,11 @@ describe("drop", () => {
   });
 });
 
+describe("dropLast", () => {
+  it("returns all but the last n elements", () => {
+    const arr = [1, 2, 3, 4];
+
+    expect(R.dropLast(3, arr)).toEqual([1]);
+  });
+});
+
