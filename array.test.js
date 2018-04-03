@@ -230,3 +230,11 @@ describe("groupBy", () => {
   });
 });
 
+describe("groupWith", () => {
+  it("groups arrays where consecutive elements match a supplied predicate", () => {
+    const arr = [1, 1, 2, 1, 1]
+
+    expect(R.groupWith(R.equals, arr)).toEqual([[1, 1], [2], [1, 1]]);
+  });
+});
+
