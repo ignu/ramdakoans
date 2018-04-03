@@ -79,3 +79,12 @@ describe("append", () => {
   });
 });
 
+describe("chain", () => {
+  it("(or flatMap) maps a function and concatenates the results", () => {
+    const double = x => [x, x+1]
+    const result = R.chain(double, [1, 2, 3]);
+
+    expect(result).toEqual([1, 2, 2, 3, 3, 4]);;
+  });
+});
+
