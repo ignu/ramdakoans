@@ -151,3 +151,10 @@ describe("dropRepeatsWith", () => {
   });
 });
 
+describe("dropWhile", () => {
+  it("drops while the predicate is true", () => {
+    expect(R.dropWhile(R.lte(R.__, 5), [1, 3, 5, 9])).toEqual([9]);
+  });
+});
+
+
