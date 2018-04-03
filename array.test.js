@@ -195,3 +195,23 @@ describe("findIndex", () => {
   });
 });
 
+describe("findLast", () => {
+  it("returns the last eleemnt of the array", () => {
+    const arr = [{king: false, firstName: "Bran"},
+      {king: true, firstName: "Jon"},
+      {king: true, firstName: "Stannis"}
+    ];
+
+    const isKing = R.propEq('king', true)
+
+    expect(R.findLast(isKing, arr).firstName).toEqual("Stannis");
+  });
+});
+
+describe("findLastIndex", () => {
+  const arr = [3, 2, 3, 4];
+  const isThree = R.equals(3)
+
+  expect(R.findLastIndex(isThree, arr)).toEqual(2);
+});
+
