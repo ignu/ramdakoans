@@ -215,3 +215,11 @@ describe("findLastIndex", () => {
   expect(R.findLastIndex(isThree, arr)).toEqual(2);
 });
 
+describe("flatten", () => {
+  it("returns a flattened array", () => {
+    const arr = [1, [2], [[[3]]]];
+
+    expect(R.flatten(arr)).toEqual([1, 2, 3]);
+  });
+});
+
