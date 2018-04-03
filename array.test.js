@@ -138,3 +138,9 @@ describe("dropLastWhile", () => {
   });
 });
 
+describe("dropRepeats", () => {
+  it("drops repeated elements", () => {
+    expect(R.dropRepeats([1, 1, 1, 2, 2, 1])).toEqual([1, 2, 1]);
+  });
+});
+
