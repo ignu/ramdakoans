@@ -157,4 +157,11 @@ describe("dropWhile", () => {
   });
 });
 
+describe("endsWith", () => {
+  it("predicate to see if array or string ends with", () => {
+    expect(R.endsWith([2, 3], [1, 2, 3])).toEqual(true);
+    expect(R.endsWith("cool", "yeah, it is cool")).toEqual(true);
+  });
+});
+
 
