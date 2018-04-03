@@ -71,14 +71,11 @@ describe("applySpec", () => {
   });
 });
 
-describe("applyTo", () => {
-  it("applies a function to a value", () => {
-    const add1 = R.add(1);
-    const applyTo2 = R.applyTo(2);
+describe("append", () => {
+  it("appends a value to a list", () => {
+    const values = [1];
 
-    const result = applyTo2(add1);
-
-    expect(result).toEqual(3);
+    expect(R.append(1, values)).toEqual([1, 1]);
   });
 });
 
