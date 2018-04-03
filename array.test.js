@@ -186,4 +186,12 @@ describe("find", () => {
   });
 });
 
+describe("findIndex", () => {
+  it("returns the index at an array", () => {
+    const arr = [1, 2, 3, 4];
+    const isThree = R.equals(3)
+
+    expect(R.findIndex(isThree, arr)).toEqual(2);
+  });
+});
 
