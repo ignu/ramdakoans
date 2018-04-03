@@ -164,4 +164,13 @@ describe("endsWith", () => {
   });
 });
 
+describe("filter", () => {
+  it("filters results", () => {
+    const bigNums = R.gte(R.__, 9)
+    const results = R.filter(bigNums, [1, 8, 9, 11])
+
+    expect(results).toEqual([9, 11]);
+  });
+});
+
 
