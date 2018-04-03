@@ -244,3 +244,17 @@ describe("fromPairs", () => {
   });
 });
 
+describe("groupBy", () => {
+  it("created an object with groups", () => {
+    const arr = [
+      {firstName: "Ben", state: "PA"},
+      {firstName: "George", state: "WA"},
+      {firstName: "Krysten", state: "PA"}
+    ]
+
+    const result = R.groupBy(R.prop("state"), arr)
+
+    expect(result.PA.length).toEqual(2);
+  });
+});
+
