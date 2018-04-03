@@ -144,3 +144,10 @@ describe("dropRepeats", () => {
   });
 });
 
+
+describe("dropRepeatsWith", () => {
+  it("like dropRepeats but with a predicate", () => {
+    expect(R.dropRepeatsWith(R.eqBy(Math.abs), [1, -1, 1, 2, -2, 1])).toEqual([1, 2, 1]);
+  });
+});
+
