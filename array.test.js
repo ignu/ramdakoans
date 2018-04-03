@@ -238,3 +238,11 @@ describe("groupWith", () => {
   });
 });
 
+describe("head", () => {
+  it("returns the first element of an array", () => {
+    const arr = [1, 2, 3];
+
+    expect(R.head(arr)).toEqual(1);
+  });
+});
+
