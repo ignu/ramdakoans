@@ -88,3 +88,23 @@ describe("chain", () => {
   });
 });
 
+describe("concat", () => {
+  it("concats arrays", () => {
+    const result = R.concat([1], [2]);
+
+    expect(result).toEqual([1, 2]);
+  });
+});
+
+describe("cond", () => {
+  it("returns an if/else type function", () => {
+    const isOne = R.cond([
+      [R.equals(1), () => "It's one"],
+      [R.T, R.always("It is not one")]
+    ])
+
+    expect(isOne(1)).toEqual("It's one");
+    expect(isOne(2)).toEqual("It is not one");
+  });
+});
+
