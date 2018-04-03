@@ -231,3 +231,16 @@ describe("forEach", () => {
   });
 });
 
+describe("fromPairs", () => {
+  it("returns an array of object pairs", () => {
+    const arr = [["firstName", "Jon"], ["lastName", "Lakeman"]]
+
+    const result = R.fromPairs(arr);
+
+    expect(result).toEqual({
+      firstName: "Jon",
+      lastName: "Lakeman"
+    })
+  });
+});
+
