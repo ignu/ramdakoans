@@ -106,7 +106,7 @@ describe("contains", () => {
 });
 
 describe("drop", () => {
-  it("returns all but the last n elements", () => {
+  it("returns all but the first n elements", () => {
     const arr = [1, 2, 3, 4];
 
     expect(R.drop(3, arr)).toEqual([4]);
