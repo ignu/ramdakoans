@@ -8,6 +8,12 @@ describe("__", () => {
   });
 });
 
+describe("addIndex", () => {
+  it("creates a new list iteration function with an arrity param", () => {
+    const returnIndexes = R.addIndex(R.map)((x, i) => i)
+    expect(returnIndexes([1, 1, 1])).toEqual([0, 1, 2]);
+  });
+});
 
 describe("applyTo", () => {
   it("applies a function to a value", () => {
