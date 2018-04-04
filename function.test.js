@@ -75,7 +75,16 @@ describe("ascend", () => {
     const byScore = R.ascend(R.prop("score"))
     const results =R.sort(byScore, [{score: 9}, {score: 2}, {score: 3}])
     const score = R.map(R.prop("score"), results)
+
     expect(score).toEqual([2, 3, 9]);
+  });
+});
+
+describe("call", () => {
+  it("calls the first argument with the remaining arguments", () => {
+    const result = R.call(R.add, 1, 2)
+
+    expect(result).toEqual(3);
   });
 });
 
