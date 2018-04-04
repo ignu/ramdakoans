@@ -287,3 +287,13 @@ describe("intersperse", () => {
   });
 });
 
+describe("into", () => {
+  it("transucdes into object or string", () => {
+    const toArray = R.into([])
+    const toObj = R.into({})
+    const result = toArray(R.map(R.add(1)), [1, 2])
+
+    expect(result).toEqual([2, 3]);
+  });
+});
+
