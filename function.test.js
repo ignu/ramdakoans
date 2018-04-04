@@ -23,6 +23,15 @@ describe("always", () => {
   });
 });
 
+describe("ap", () => {
+  it("applies a list of functions to a list of values", () => {
+    const result = R.ap([R.add(1), R.add(2)])([0, 1])
+
+    expect(result).toEqual([1, 2, 2, 3]);
+  });
+});
+
+
 describe("applyTo", () => {
   it("applies a function to a value", () => {
     const add1 = R.add(1);
