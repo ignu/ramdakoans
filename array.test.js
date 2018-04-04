@@ -246,3 +246,12 @@ describe("head", () => {
   });
 });
 
+describe("indexBy", () => {
+  it("creates an object with the supplied index", () => {
+    const governors = [{state: "PA", gov: "Wolfe"}, {state: "WA", gov: "Inslee"}];
+    const result = R.indexBy(R.prop("state"), governors)
+
+    expect(result.PA.gov).toEqual("Wolfe");
+  });
+});
+
