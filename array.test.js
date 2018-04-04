@@ -255,3 +255,11 @@ describe("indexBy", () => {
   });
 });
 
+describe("indexOf", () => {
+  it("returns the index of the first appearance", () => {
+    expect(R.indexOf(3, [1, 2, 3, 4, 3])).toEqual(2);
+
+    expect(R.indexOf("o", "cool")).toEqual(1);
+  });
+});
+
