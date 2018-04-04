@@ -31,6 +31,33 @@ describe("ap", () => {
   });
 });
 
+describe("apply", () => {
+  it("uses a list as arguments to a function", () => {
+    const list = [5, 2, "ignored"];
+
+    expect(R.apply(R.add, list)).toEqual(7);
+  });
+});
+
+describe("applySpec", () => {
+  it("creates a function from an object", () => {
+    const userDetails = {
+      firstName: "Jon",
+      lastName: "Snow",
+      email: "jon@winterfel.net"
+    };
+
+    const formatUser = R.applySpec({
+      fullName: (u) => `${u.firstName} ${u.lastName}`,
+      email: R.prop("email")
+    })
+
+    const user = formatUser(userDetails)
+
+    expect(user.fullName).toEqual("Jon Snow");
+    expect(user.email).toEqual("jon@winterfel.net");
+  });
+});
 
 describe("applyTo", () => {
   it("applies a function to a value", () => {
