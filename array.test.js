@@ -263,3 +263,21 @@ describe("indexOf", () => {
   });
 });
 
+describe("init", () => {
+  it("returns all but the last element of an array", () => {
+    expect(R.init([1, 2, 3])).toEqual([1, 2]);
+  });
+});
+
+describe("insert", () => {
+  it("inserts an element at an index", () => {
+    expect(R.insert(1, 'a', [1, 2, 3])).toEqual([1, 'a', 2, 3]);
+  });
+});
+
+describe("insertAll", () => {
+  it("inserts all elements into a list", () => {
+    expect(R.insertAll(1, ['a', 'b'], [1, 2, 3])).toEqual([1, 'a', 'b', 2, 3]);
+  });
+});
+
