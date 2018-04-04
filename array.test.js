@@ -281,3 +281,9 @@ describe("insertAll", () => {
   });
 });
 
+describe("intersperse", () => {
+  it("intersperses a value in a list", () => {
+    expect(R.intersperse(0, [1, 1, 1])).toEqual([1, 0, 1, 0, 1]);
+  });
+});
+
