@@ -70,3 +70,12 @@ describe("applyTo", () => {
   });
 });
 
+describe("ascend", () => {
+  it("creates an ascending comparator function", () => {
+    const byScore = R.ascend(R.prop("score"))
+    const results =R.sort(byScore, [{score: 9}, {score: 2}, {score: 3}])
+    const score = R.map(R.prop("score"), results)
+    expect(score).toEqual([2, 3, 9]);
+  });
+});
+
