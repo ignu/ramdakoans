@@ -15,6 +15,14 @@ describe("addIndex", () => {
   });
 });
 
+describe("always", () => {
+  it("creates a function that always returns a value", () => {
+    const three = R.always(3);
+
+    expect(three()).toEqual(3);
+  });
+});
+
 describe("applyTo", () => {
   it("applies a function to a value", () => {
     const add1 = R.add(1);
