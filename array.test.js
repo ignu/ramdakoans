@@ -340,7 +340,6 @@ describe("mapAccum", () => {
   });
 });
 
-
 describe("mapAccumRight", () => {
   it("combines map and reduce", () => {
     const arr = [21, 15, 9]
@@ -349,6 +348,28 @@ describe("mapAccumRight", () => {
     const result = R.mapAccumRight(func, 0, arr)
 
     expect(result).toEqual([[45, 24, 9], 45])
+  });
+});
+
+describe("mergeAll", () => {
+  it("merges multiple levels of defaults", () => {
+    const defaults = {
+      public: true,
+      env: 'dev'
+    }
+
+    const prod = {
+      level: 1,
+      env: 'prod'
+    }
+
+    const userSettings = {
+      level: 2
+    }
+
+    const results = R.mergeAll([defaults, prod, userSettings])
+
+    expect(results).toEqual({public: true, env: 'prod', level: 2});
   });
 });
 
