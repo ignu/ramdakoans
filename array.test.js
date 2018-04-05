@@ -297,3 +297,22 @@ describe("into", () => {
   });
 });
 
+describe("join", () => {
+  it("joins an array", () => {
+    expect(R.join('ll')(['he', 'o'])).toEqual('hello');
+  });
+});
+
+describe("last", () => {
+  it("returns the last element of an array", () => {
+    expect(R.last([1, 2])).toEqual(2);
+  });
+});
+
+describe("lastIndexOf", () => {
+  it("returns the last matching index", () => {
+    expect(R.lastIndexOf(2, [1, 2, 3, 2, 1])).toEqual(3);;
+  });
+});
+
+
