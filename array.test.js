@@ -329,4 +329,14 @@ describe("map", () => {
   });
 });
 
+describe("mapAccum", () => {
+  it("combines map and reduce", () => {
+    const arr = [21, 15, 9]
+
+    const func = (a, b) => [a + b, a + b]
+    const result = R.mapAccum(func, 0, arr)
+
+    expect(result).toEqual([45, [21, 36, 45]])
+  });
+});
 
