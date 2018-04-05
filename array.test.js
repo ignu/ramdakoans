@@ -315,4 +315,18 @@ describe("lastIndexOf", () => {
   });
 });
 
+describe("length", () => {
+  it("returns the length of an array", () => {
+    expect(R.length([1])).toEqual(1);
+  });
+});
+
+describe("map", () => {
+  it("maps an array", () => {
+    const double = R.map(x => x * 2)
+
+    expect(double([1, 2])).toEqual([2, 4]);
+  });
+});
+
 
