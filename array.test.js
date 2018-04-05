@@ -373,4 +373,24 @@ describe("mergeAll", () => {
   });
 });
 
+describe("none", () => {
+  it("opposite of all", () => {
+    const results = R.none([undefined, false, null])
+
+    expect(results).toBeTruthy()
+  });
+});
+
+describe("nth", () => {
+  it("returns the nth element", () => {
+    expect(R.nth(2, [1, 2, 3])).toEqual(3);
+  });
+});
+
+describe("pair", () => {
+  it("takes two arguments and returns an array", () => {
+    expect(R.pair(1, 2)).toEqual([1, 2]);
+  });
+});
+
 
