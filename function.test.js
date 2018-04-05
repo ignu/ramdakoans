@@ -88,3 +88,22 @@ describe("call", () => {
   });
 });
 
+describe("comparator", () => {
+  it("returns a comparator function from one that returns lt", () => {
+    const byScore = R.comparator((a, b) => a < b)
+    const results = R.sortBy(byScore, [5, 2, 3, 1])
+
+    expect(results).toEqual([1, 2, 3, 5]);
+  });
+});
+
+describe("compose", () => {
+  it("composes multiple functions", () => {
+    const greet = R.compose(
+      R.toUpper,
+      (f, l) => `Hi, ${f} ${l}!`
+    )
+    expect(greet("jon", "snow")).toEqual("HI, JON SNOW!");
+  });
+});
+
