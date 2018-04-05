@@ -91,7 +91,7 @@ describe("call", () => {
 describe("comparator", () => {
   it("returns a comparator function from one that returns lt", () => {
     const byScore = R.comparator((a, b) => a < b)
-    const results = R.sortBy(byScore, [5, 2, 3, 1])
+    const results = R.sort(byScore, [2, 5, 3, 1])
 
     expect(results).toEqual([1, 2, 3, 5]);
   });
