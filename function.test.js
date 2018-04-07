@@ -107,3 +107,15 @@ describe("compose", () => {
   });
 });
 
+describe("construct", () => {
+  it("wraps a constructor in a curried function", () => {
+    function Animal(name) {
+      this.name = name
+    }
+
+    const AnimalMaker = R.construct(Animal)
+
+    expect(AnimalMaker("Bob").name).toEqual("Bob");
+  });
+});
+
