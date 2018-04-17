@@ -5,12 +5,11 @@ describe("adjust", () => {
     const add3 = R.add(3);
     const ones = [1, 1, 1];
 
-    const updated = R.adjust(add3, 1, ones)
+    const updated = R.adjust(add3, 1, ones);
 
     expect(updated).toEqual([1, 4, 1]);
   });
 });
-
 
 describe("all", () => {
   it("returns true if suplied predicate returns truthy ", () => {
@@ -23,7 +22,6 @@ describe("all", () => {
     expect(R.all(R.identity, make1falsey(trues))).toEqual(false);
   });
 });
-
 
 describe("any", () => {
   it("returns true if suplied predicate returns truthy for any value", () => {
@@ -40,8 +38,8 @@ describe("aperture", () => {
     const result = R.aperture(3, list);
 
     expect(result).toEqual([[1, 2, 3], [2, 3, 4], [3, 4, 5]]);
-  })
-})
+  });
+});
 
 describe("append", () => {
   it("appends a value to a list", () => {
@@ -53,10 +51,10 @@ describe("append", () => {
 
 describe("chain", () => {
   it("(or flatMap) maps a function and concatenates the results", () => {
-    const double = x => [x, x+1]
+    const double = x => [x, x + 1];
     const result = R.chain(double, [1, 2, 3]);
 
-    expect(result).toEqual([1, 2, 2, 3, 3, 4]);;
+    expect(result).toEqual([1, 2, 2, 3, 3, 4]);
   });
 });
 
@@ -70,7 +68,7 @@ describe("concat", () => {
 
 describe("contains", () => {
   it("detects if an array contains an element", () => {
-    const arr = [1, 2, 3]
+    const arr = [1, 2, 3];
 
     expect(R.contains(1, arr)).toBeTruthy();
     expect(R.contains(9, arr)).not.toBeTruthy();
@@ -101,7 +99,6 @@ describe("dropWhile", () => {
   });
 });
 
-
 describe("dropLastWhile", () => {
   it("like dropLast but with a predicate", () => {
     const isOne = R.equals(1);
@@ -116,10 +113,13 @@ describe("dropRepeats", () => {
   });
 });
 
-
 describe("dropRepeatsWith", () => {
   it("like dropRepeats but with a predicate", () => {
-    expect(R.dropRepeatsWith(R.eqBy(Math.abs), [1, -1, 1, 2, -2, 1])).toEqual([1, 2, 1]);
+    expect(R.dropRepeatsWith(R.eqBy(Math.abs), [1, -1, 1, 2, -2, 1])).toEqual([
+      1,
+      2,
+      1
+    ]);
   });
 });
 
@@ -138,8 +138,8 @@ describe("endsWith", () => {
 
 describe("filter", () => {
   it("filters results", () => {
-    const bigNums = R.gte(R.__, 9)
-    const results = R.filter(bigNums, [1, 8, 9, 11])
+    const bigNums = R.gte(R.__, 9);
+    const results = R.filter(bigNums, [1, 8, 9, 11]);
 
     expect(results).toEqual([9, 11]);
   });
@@ -147,12 +147,13 @@ describe("filter", () => {
 
 describe("find", () => {
   it("returns first element of the array", () => {
-    const arr = [{king: false, firstName: "Bran"},
-      {king: true, firstName: "Jon"},
-      {king: true, firstName: "Stannis"}
+    const arr = [
+      { king: false, firstName: "Bran" },
+      { king: true, firstName: "Jon" },
+      { king: true, firstName: "Stannis" }
     ];
 
-    const isKing = R.propEq('king', true)
+    const isKing = R.propEq("king", true);
 
     expect(R.find(isKing, arr).firstName).toEqual("Jon");
   });
@@ -161,7 +162,7 @@ describe("find", () => {
 describe("findIndex", () => {
   it("returns the index at an array", () => {
     const arr = [1, 2, 3, 4];
-    const isThree = R.equals(3)
+    const isThree = R.equals(3);
 
     expect(R.findIndex(isThree, arr)).toEqual(2);
   });
@@ -169,12 +170,13 @@ describe("findIndex", () => {
 
 describe("findLast", () => {
   it("returns the last eleemnt of the array", () => {
-    const arr = [{king: false, firstName: "Bran"},
-      {king: true, firstName: "Jon"},
-      {king: true, firstName: "Stannis"}
+    const arr = [
+      { king: false, firstName: "Bran" },
+      { king: true, firstName: "Jon" },
+      { king: true, firstName: "Stannis" }
     ];
 
-    const isKing = R.propEq('king', true)
+    const isKing = R.propEq("king", true);
 
     expect(R.findLast(isKing, arr).firstName).toEqual("Stannis");
   });
@@ -182,7 +184,7 @@ describe("findLast", () => {
 
 describe("findLastIndex", () => {
   const arr = [3, 2, 3, 4];
-  const isThree = R.equals(3)
+  const isThree = R.equals(3);
 
   expect(R.findLastIndex(isThree, arr)).toEqual(2);
 });
@@ -198,33 +200,33 @@ describe("flatten", () => {
 describe("forEach", () => {
   it("loops over elements", () => {
     let x = 0;
-    R.forEach((i) => x = x + i, [1, 2, 3])
+    R.forEach(i => (x = x + i), [1, 2, 3]);
     expect(x).toEqual(6);
   });
 });
 
 describe("fromPairs", () => {
   it("returns an array of object pairs", () => {
-    const arr = [["firstName", "Jon"], ["lastName", "Lakeman"]]
+    const arr = [["firstName", "Jon"], ["lastName", "Lakeman"]];
 
     const result = R.fromPairs(arr);
 
     expect(result).toEqual({
       firstName: "Jon",
       lastName: "Lakeman"
-    })
+    });
   });
 });
 
 describe("groupBy", () => {
   it("created an object with groups", () => {
     const arr = [
-      {firstName: "Ben", state: "PA"},
-      {firstName: "George", state: "WA"},
-      {firstName: "Krysten", state: "PA"}
-    ]
+      { firstName: "Ben", state: "PA" },
+      { firstName: "George", state: "WA" },
+      { firstName: "Krysten", state: "PA" }
+    ];
 
-    const result = R.groupBy(R.prop("state"), arr)
+    const result = R.groupBy(R.prop("state"), arr);
 
     expect(result.PA.length).toEqual(2);
   });
@@ -232,7 +234,7 @@ describe("groupBy", () => {
 
 describe("groupWith", () => {
   it("groups arrays where consecutive elements match a supplied predicate", () => {
-    const arr = [1, 1, 2, 1, 1]
+    const arr = [1, 1, 2, 1, 1];
 
     expect(R.groupWith(R.equals, arr)).toEqual([[1, 1], [2], [1, 1]]);
   });
@@ -248,8 +250,11 @@ describe("head", () => {
 
 describe("indexBy", () => {
   it("creates an object with the supplied index", () => {
-    const governors = [{state: "PA", gov: "Wolfe"}, {state: "WA", gov: "Inslee"}];
-    const result = R.indexBy(R.prop("state"), governors)
+    const governors = [
+      { state: "PA", gov: "Wolfe" },
+      { state: "WA", gov: "Inslee" }
+    ];
+    const result = R.indexBy(R.prop("state"), governors);
 
     expect(result.PA.gov).toEqual("Wolfe");
   });
@@ -271,13 +276,13 @@ describe("init", () => {
 
 describe("insert", () => {
   it("inserts an element at an index", () => {
-    expect(R.insert(1, 'a', [1, 2, 3])).toEqual([1, 'a', 2, 3]);
+    expect(R.insert(1, "a", [1, 2, 3])).toEqual([1, "a", 2, 3]);
   });
 });
 
 describe("insertAll", () => {
   it("inserts all elements into a list", () => {
-    expect(R.insertAll(1, ['a', 'b'], [1, 2, 3])).toEqual([1, 'a', 'b', 2, 3]);
+    expect(R.insertAll(1, ["a", "b"], [1, 2, 3])).toEqual([1, "a", "b", 2, 3]);
   });
 });
 
@@ -289,9 +294,9 @@ describe("intersperse", () => {
 
 describe("into", () => {
   it("transucdes into object or string", () => {
-    const toArray = R.into([])
-    const toObj = R.into({})
-    const result = toArray(R.map(R.add(1)), [1, 2])
+    const toArray = R.into([]);
+    const toObj = R.into({});
+    const result = toArray(R.map(R.add(1)), [1, 2]);
 
     expect(result).toEqual([2, 3]);
   });
@@ -299,7 +304,7 @@ describe("into", () => {
 
 describe("join", () => {
   it("joins an array", () => {
-    expect(R.join('ll')(['he', 'o'])).toEqual('hello');
+    expect(R.join("ll")(["he", "o"])).toEqual("hello");
   });
 });
 
@@ -311,7 +316,7 @@ describe("last", () => {
 
 describe("lastIndexOf", () => {
   it("returns the last matching index", () => {
-    expect(R.lastIndexOf(2, [1, 2, 3, 2, 1])).toEqual(3);;
+    expect(R.lastIndexOf(2, [1, 2, 3, 2, 1])).toEqual(3);
   });
 });
 
@@ -323,7 +328,7 @@ describe("length", () => {
 
 describe("map", () => {
   it("maps an array", () => {
-    const double = R.map(x => x * 2)
+    const double = R.map(x => x * 2);
 
     expect(double([1, 2])).toEqual([2, 4]);
   });
@@ -331,23 +336,23 @@ describe("map", () => {
 
 describe("mapAccum", () => {
   it("combines map and reduce", () => {
-    const arr = [21, 15, 9]
+    const arr = [21, 15, 9];
 
-    const func = (a, b) => [a + b, a + b]
-    const result = R.mapAccum(func, 0, arr)
+    const func = (a, b) => [a + b, a + b];
+    const result = R.mapAccum(func, 0, arr);
 
-    expect(result).toEqual([45, [21, 36, 45]])
+    expect(result).toEqual([45, [21, 36, 45]]);
   });
 });
 
 describe("mapAccumRight", () => {
   it("combines map and reduce", () => {
-    const arr = [21, 15, 9]
+    const arr = [21, 15, 9];
 
-    const func = (a, b) => [a + b, a + b]
-    const result = R.mapAccumRight(func, 0, arr)
+    const func = (a, b) => [a + b, a + b];
+    const result = R.mapAccumRight(func, 0, arr);
 
-    expect(result).toEqual([[45, 24, 9], 45])
+    expect(result).toEqual([[45, 24, 9], 45]);
   });
 });
 
@@ -355,29 +360,29 @@ describe("mergeAll", () => {
   it("merges multiple levels of defaults", () => {
     const defaults = {
       public: true,
-      env: 'dev'
-    }
+      env: "dev"
+    };
 
     const prod = {
       level: 1,
-      env: 'prod'
-    }
+      env: "prod"
+    };
 
     const userSettings = {
       level: 2
-    }
+    };
 
-    const results = R.mergeAll([defaults, prod, userSettings])
+    const results = R.mergeAll([defaults, prod, userSettings]);
 
-    expect(results).toEqual({public: true, env: 'prod', level: 2});
+    expect(results).toEqual({ public: true, env: "prod", level: 2 });
   });
 });
 
 describe("none", () => {
   it("opposite of all", () => {
-    const results = R.none([undefined, false, null])
+    const results = R.none([undefined, false, null]);
 
-    expect(results).toBeTruthy()
+    expect(results).toBeTruthy();
   });
 });
 
@@ -393,4 +398,33 @@ describe("pair", () => {
   });
 });
 
+describe("partition", () => {
+  it("creates two arrays based on a predicate", () => {
+    const arr = [6, 2, 3, 9];
+    const result = R.partition(R.gt(R.__, 5), arr);
 
+    expect(result[0]).toEqual([6, 9]);
+    expect(result[1]).toEqual([2, 3]);
+  });
+});
+
+describe("pluck", () => {
+  it("creates a new array by plucking a property", () => {
+    const people = [
+      { firstName: "jon", lastName: "snow" },
+      { firstName: "tyrion" }
+    ];
+
+    const arr = R.pluck("firstName", people);
+
+    expect(arr).toEqual(["jon", "tyrion"]);
+  });
+});
+
+describe("prepend", () => {
+  it("prepends an element", () => {
+    const addOne = R.prepend(1);
+
+    expect(addOne([2])).toEqual([1, 2]);
+  });
+});
